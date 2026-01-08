@@ -68,3 +68,17 @@ The script uses standard Python libraries for most tasks but requires:
 - `qrcode` & `pillow` (for QR Code generation)
 
 These can be installed via `pip install -r requirements.txt`.
+
+## Pro Tip: Set up an Alias
+
+For even faster access, you can set up an alias in your shell (`.zshrc` or `.bashrc`):
+
+```bash
+alias tools="python3 /absolute/path/to/tools.py"
+```
+
+Then you can simply run:
+```bash
+tools md5 "hello"
+tools "#ffffff"
+```
