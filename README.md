@@ -1,6 +1,6 @@
-# Terminal IT Tools
+# IT Tools & Converters: Essential Developer Toolkit for Terminal
 
-A collection of useful IT and developer tools in a single Python CLI script. Fast, lightweight, and easy to use directly from your terminal.
+A powerful collection of open-source **IT tools**, **converters**, and **basic encoding** functions in a single Python CLI script. Fast, lightweight, and designed for programmers who live in the terminal. Whether you need an **online converter alternative**, **data encoding**, or **hash generators**, this toolkit has you covered.
 
 ## Features
 
@@ -14,6 +14,9 @@ A collection of useful IT and developer tools in a single Python CLI script. Fas
 - **Formatters**: JSON, XML, CSV (Format & Minify)
 - **Utilities**: Unix timestamps, Regex tester, Markdown to HTML, HTML to Markdown
 - **Smart Features**: Auto-detects tool by input pattern, Fuzzy matches tool names (e.g., `base64encode` -> `base64_encode`)
+
+## Keywords for Search
+`it tools`, `converter`, `basic encoding`, `hash generator`, `base64 encoder`, `url decoder`, `jwt decoder`, `uuid generator`, `json formatter`, `regex tester`, `case converter`, `unix timestamp converter`, `qr code generator`, `terminal script`, `developer productivity`.
 
 ## Installation
 

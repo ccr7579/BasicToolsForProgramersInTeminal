@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Tools & Converters | Essential Terminal Toolkit for Developers</title>
+    <meta name="description"
+        content="A powerful collection of open-source IT tools, converters, and basic encoding functions for programmers. MD5, SHA256, Base64, JWT decoder, QR codes, and more.">
+    <meta name="keywords"
+        content="it tools, converter, basic encoding, base64 encode, url decode, jwt decoder, uuid generator, json formatter, regex tester, terminal script">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IT Tools & Converters | Terminal Toolkit">
+    <meta property="og:description" content="Fast, lightweight, and powerful developer tools in your terminal.">
+    <meta property="og:image"
+        content="https://opengraph.githubassets.com/1/shishirpokhrel/BasicToolsForProgrammersUsingTerminal">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: rgba(22, 27, 34, 0.7);
+            --accent-color: #58a6ff;
+            --text-main: #c9d1d9;
+            --text-dim: #8b949e;
+            --glass-border: rgba(240, 246, 252, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #58a6ff 0%, #bc8cff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-terminal {
+            background: #161b22;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            margin-bottom: 5rem;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-terminal::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+        }
+
+        .terminal-dots {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background: #ff5f56;
+        }
+
+        .yellow {
+            background: #ffbd2e;
+        }
+
+        .green {
+            background: #27c93f;
+        }
+
+        .command {
+            color: var(--accent-color);
+        }
+
+        .output {
+            color: #aff5b4;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 25px rgba(88, 166, 255, 0.1);
+        }
+
+        .tool-card h3 {
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .tool-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--glass-border);
+            padding-top: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Micro-animations */
+        .typing {
+            display: inline-block;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid var(--accent-color);
+            animation: typing 3s steps(30, end) infinite alternate;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>IT Tools for Programmers</h1>
+            <p>A comprehensive terminal-based toolkit for every IT task. No more searching for online converters — do it
+                all locally, securely, and instantly.</p>
+            <a href="https://github.com/shishirpokhrel/BasicToolsForProgrammersUsingTerminal" class="btn">View on
+                GitHub</a>
+        </header>
+
+        <div class="hero-terminal">
+            <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div style="margin-top: 1rem;">
+                <p><span class="command">$ python tools.py md5 "hello world"</span></p>
+                <p class="output">5eb63bbbe01eeed093cb22bb8f5acdc3</p>
+                <br>
+                <p><span class="command">$ python tools.py base64_encode "hello world"</span></p>
+                <p class="output">aGVsbG8gd29ybGQ=</p>
+                <br>
+                <p><span class="command">$ python tools.py --detect "eyJhbGciOiJIUzI1..."</span></p>
+                <p class="output">Detected: JWT Decoder -> [Decoded Payload]</p>
+            </div>
+        </div>
+
+        <section class="tools-grid">
+            <div class="tool-card">
+                <h3>🔐 Hashing Functions</h3>
+                <p>Generate secure MD5, SHA1, SHA256, and SHA512 hashes instantly for any string or file content.</p>
+            </div>
+            <div class="tool-card">
+                <h3>🔣 Encoding & Decoding</h3>
+                <p>Effortlessly handle Base64, Base32, URL Encoding, and specialized JWT payload decoding.</p>
+            </div>
+            <div class="tool-card">
+                <h3>🛠️ Formatters & Minifiers</h3>
+                <p>Beautifully format or minify JSON, XML, and CSV data. Clean up your raw strings with one command.</p>
+            </div>
+            <div class="tool-card">
+                <h3>🎲 Smart Generators</h3>
+                <p>Create secure passwords, random UUIDs (v1, v4), QR codes, and Lorem Ipsum text on the fly.</p>
+            </div>
+            <div class="tool-card">
+                <h3>🎨 Color & Case Tools</h3>
+                <p>Convert Hex to RGB, RGB to Hex, and transform string cases (Snake, Camel, Pascal, Kebab).</p>
+            </div>
+            <div class="tool-card">
+                <h3>⏱️ Timestamp & Regex</h3>
+                <p>Convert Unix timestamps to human-readable dates and test regular expressions in your terminal.</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Built for developers. Open Source. MIT License.</p>
+            <p>© 2026 IT Tools & Converters</p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
